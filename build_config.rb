@@ -2,6 +2,10 @@ def gem_config(conf)
   #conf.gembox 'default'
   conf.gembox 'full-core'
   conf.gem :mgem => "mruby-getopts"
+  conf.gem :github => 'iij/mruby-io'
+  conf.gem :github => 'iij/mruby-dir'
+  conf.gem :github => 'iij/mruby-iijson'
+  conf.gem :github => 'monochromegane/mruby-secure-random'
 
   # be sure to include this gem (the cli app)
   conf.gem File.expand_path(File.dirname(__FILE__))
