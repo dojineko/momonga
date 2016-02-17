@@ -33,5 +33,6 @@ def __main__(argv)
   else
     print("--mode is required.\n")
     Momonga.usage
+    return 1
   end
 end

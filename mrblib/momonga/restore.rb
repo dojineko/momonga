@@ -7,7 +7,7 @@ module Momonga
 
       Dir.foreach(workdir) {|folderName|
         folderPath = "#{workdir}/#{folderName}"
-        next if (folderName.start_with?(".") || !File.directory?(folderPath)) || Dir.entries("#{folderPath}").length() < 3
+        next if (folderName.start_with?(".") || !File.directory?(folderPath))
 
         folderKey = SecureRandom.hex(20)[0,39]
         folders.push({

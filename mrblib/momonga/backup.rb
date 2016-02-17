@@ -8,26 +8,16 @@ module Momonga
       folders = {}
       note["folders"].each {|folder|
         folders[folder["key"]] = folder["name"]
+
+        # フォルダをあらかじめ作る
+        return false if !mkdir("#{workdir}")
+        return false if !mkdir("#{workdir}/#{folder["name"]}")
       }
 
       # 巡回してファイルを作る
       note["articles"].each {|article|
-        if !File.directory?("#{workdir}")
-          if !Dir.mkdir("#{workdir}")
-            echo "#{workdir} cannot create"
-            return
-          end
-        end
 
-        destDir = "#{workdir}/#{folders[article["FolderKey"]]}"
-        if !File.directory?("#{destDir}")
-          if !Dir.mkdir("#{destDir}")
-            echo "#{destDir} cannot create"
-            return
-          end
-        end
-
-        destFullPath = "#{destDir}/#{article["title"]}.md"
+        destFullPath = "#{workdir}/#{folders[article["FolderKey"]]}/#{article["title"]}.md"
         File.open(destFullPath,"w+").write(article["content"])
       }
     end
