@@ -16,7 +16,6 @@ module Momonga
 
       # 巡回してファイルを作る
       note["articles"].each {|article|
-
         destFullPath = "#{workdir}/#{folders[article["FolderKey"]]}/#{article["title"]}.md"
         File.open(destFullPath,"w+").write(article["content"])
       }
