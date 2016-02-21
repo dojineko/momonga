@@ -19,7 +19,7 @@ module Momonga
           filePath = "#{folderPath}/#{fileName}"
           next if fileName.start_with?(".") || !File.file?(filePath)
           nowTime=Time.now().utc()
-          nowTimeStr=sprintf("%04d-%02d-%02dT%02d:%02d:%02d.%03dZ", nowTime.year(), nowTime.month(), nowTime.day(), nowTime.hour(), nowTime.min(), nowTime.sec(), nowTime.usec()/1000)
+          nowTimeStr=nowTime.strftime("%Y-%m-%dT%H:%M:%S.%LZ")
           articles.push({
             "title" => fileName.gsub(File.extname(fileName), ""),
             "content" => File.open("#{filePath}").read(),

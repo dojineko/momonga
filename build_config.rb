@@ -5,6 +5,7 @@ def gem_config(conf)
   conf.gem :github => 'iij/mruby-io'
   conf.gem :github => 'iij/mruby-dir'
   conf.gem :github => 'iij/mruby-iijson'
+  conf.gem :github => 'monochromegane/mruby-time-strftime'
   conf.gem :github => 'monochromegane/mruby-secure-random'
 
   # be sure to include this gem (the cli app)
